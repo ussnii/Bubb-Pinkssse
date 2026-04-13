@@ -64,8 +64,36 @@
             background-color: #fdf2f8;
             border-color: #f472b6;
         }
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 12px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+            border: 2px solid #fbcfe8;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .music-control:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
+    <body class="p-4 md:p-8">
+    <audio id="myAudio" loop>
+        <source src="https://e.top4top.io/m_3755smcjd1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="musicBtn" class="music-control" onclick="toggleMusic()">
+        <span id="musicIcon">🎵</span>
+    </div>
+    ```
 <body class="p-4 md:p-8">
 
     <!-- REQUIRED PLACEHOLDER COMMENTS -->
@@ -357,17 +385,27 @@
             // Scroll to the status
             statusDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
+        const audio = document.getElementById('myAudio');
+        const musicIcon = document.getElementById('musicIcon');
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                musicIcon.innerText = '⏸️';
+            } else {
+                audio.pause();
+                musicIcon.innerText = '🎵';
+            }
+        }
+        document.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                musicIcon.innerText = '⏸️';
+            }
+        }, { once: true });
     </script>
 </body>
 </html>
-
-</html>
-</head>
-    </title>AUDIO </title>
-    <iframe src="https://e.top4top.io/m_3755smcjd1.mp3" height="0" widht="0" allow="autoplay" ; encrypt-media></iframe>
-</head>
-</body>
-
-
+    </script>
 </body>
 </html>
